@@ -5,4 +5,8 @@ class Player
     @name = name
     @mark = mark
   end
+
+  def drop_mark(col, board)
+    board.drop_mark(col, mark)
+  end
 end
