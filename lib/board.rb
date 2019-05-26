@@ -1,8 +1,9 @@
 class Board
-  attr_reader :square
+  attr_accessor :square, :current_drop_position
 
   def initialize
     @square = []
+    @current_drop_position = nil
     # Create multi-dimensional array for columns and rows
     # Outer array is columns and sub array is rows
     7.times { square << Array.new(6) { " " }}
@@ -35,6 +36,9 @@ class Board
     until row < 0
       if square[col][row] == " "
         square[col][row] = mark
+        
+        # Save drop position
+        @current_drop_position = [col,row]
         break
       end
 

@@ -41,5 +41,18 @@ RSpec.describe Board do
         expect(board.drop_mark(7, "X")).to eql "Invalid drop"
       end
     end
+
+    context "save dropped mark position" do
+      it "when drop mark on the bottom" do
+        board.drop_mark(2, "X")
+        expect(board.current_drop_position).to eql([2, 5])
+      end
+
+      it "when drop a new mark" do
+        board.drop_mark(0, "X")
+        board.drop_mark(0, "X")
+        expect(board.current_drop_position).to eql([0, 4])
+      end
+    end
   end
 end
