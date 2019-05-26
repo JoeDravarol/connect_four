@@ -66,9 +66,12 @@ class Game
     !col.empty? && col.length == 1 && col =~ (/\d+/) && col.to_i.between?(0,6) ? true : false
   end
 
-  def drop_mark(player)
-    col = get_mark(player)
-    player.drop_mark(col, board)
+  def drop_mark(player)    
+    loop do
+      col = get_mark(player)
+      break unless player.drop_mark(col, board) == "Invalid drop"
+      puts "Invalid drop"
+    end
   end
 
   def switch_player
@@ -105,3 +108,5 @@ class Game
     win_condition.draw?(board)
   end
 end
+
+game = Game.new

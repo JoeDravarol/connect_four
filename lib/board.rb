@@ -25,7 +25,7 @@ class Board
 
       row += 1
     end
-    puts "  0   1   2  3   4   5   6"
+    puts "  0   1   2   3   4   5   6"
   end
 
   def drop_mark(col, mark)
