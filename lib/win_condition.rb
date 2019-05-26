@@ -40,7 +40,7 @@ class WinCondition
       
     # Left
     1.upto(3) do |i|
-      break if !(col-i).between?(0,6) || board.square[col-1][row] != mark
+      break if !(col-i).between?(0,6) || board.square[col-i][row] != mark
       counter += 1
     end
   
@@ -66,13 +66,13 @@ class WinCondition
 
     # Up Left
     1.upto(3) do |i|
-      break if !(col-i).between?(0,6) && !(row-i).between?(0,5) || board.square[col-i][row-i] != mark
+      break if !(col-i).between?(0,6) || !(row-i).between?(0,5) || board.square[col-i][row-i] != mark
       counter += 1
     end
     
     # Down Right
     1.upto(3) do |i|
-      break if !(col+i).between?(0,6) && !(row+i).between?(0,5) || board.square[col+i][row+i] != mark
+      break if !(col+i).between?(0,6) || !(row+i).between?(0,5) || board.square[col+i][row+i] != mark
       counter += 1
     end
 
@@ -85,13 +85,13 @@ class WinCondition
 
     # Up Right
     1.upto(3) do |i|
-      break if !(col+i).between?(0,6) && !(row-i).between?(0,5) || board.square[col+i][row-i] != mark
+      break if !(col+i).between?(0,6) || !(row-i).between?(0,5) || board.square[col+i][row-i] != mark
       counter += 1
     end
 
     # Down Left
     1.upto(3) do |i|
-      break if !(col-i).between?(0,6) && !(row+i).between?(0,5) || board.square[col-i][row+i] != mark
+      break if !(col-i).between?(0,6) || !(row+i).between?(0,5) || board.square[col-i][row+i] != mark
       counter += 1
     end
 
